@@ -1,0 +1,14 @@
+on:
+  issue_comment:
+    types: created
+
+jobs:
+  issue_commented:
+    name: Issue comment
+    runs-on: ubuntu-latest
+    if: ${{ !github.event.issue.pull_request }}
+    steps:
+      - run: |
+          echo A comment on issue $NUMBER
+        env:
+          NUMBER: ${{ github.event.issue.number }}
