@@ -6,10 +6,11 @@ jobs:
   issue_commented:
     name: Issue comment
     runs-on: ubuntu-latest
-    if: ${{ !github.event.issue.pull_request }}
+    if: ${{ !github.event.issue.pull_request -a github.event.issue.labels.0.name == "messaging room"}}
     steps:
       - run: |
-          echo ${MSGBODY}>>chatrooms/${ROOMTITLE}.txt
+          echo ${MSGSENDER}: ${MSGBODY}>>chatrooms/${ROOMTITLE}.txt
         env:
           MSGBODY: ${{ github.event.comment.body }}
           ROOMTITLE: ${{ github.event.issue.title }}
+          MSGSENDER: ${{ github.event.comment.user.name }}
