@@ -14,7 +14,7 @@ jobs:
           mkdir chatrooms
           cd chatrooms
           echo ${MSGSENDER}: ${MSGBODY}>>${ROOMTITLE}.txt
-          git add .
+          git add -A
           git commit -m 'user message'
           git push
         env:
