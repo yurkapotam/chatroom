@@ -9,8 +9,9 @@ jobs:
     if: ${{ (!github.event.issue.pull_request) && (github.event.issue.labels[0].name == 'messaging room') }}
     steps:
       - run: |
-          cd chatrooms
+          #cd chatrooms
           pwd
+          ls
           #echo ${MSGSENDER}: ${MSGBODY}>>${ROOMTITLE}.txt
         env:
           MSGBODY: ${{ github.event.comment.body }}
