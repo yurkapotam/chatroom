@@ -9,10 +9,14 @@ jobs:
     if: ${{ (!github.event.issue.pull_request) && (github.event.issue.labels[0].name == 'messaging room') }}
     steps:
       - run: |
-          #cd chatrooms
-          pwd
-          ls
-          #echo ${MSGSENDER}: ${MSGBODY}>>${ROOMTITLE}.txt
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          mkdir chatrooms
+          cd chatrooms
+          echo ${MSGSENDER}: ${MSGBODY}>>${ROOMTITLE}.txt
+          git add .
+          git commit -m 'user message'
+          git push
         env:
           MSGBODY: ${{ github.event.comment.body }}
           ROOMTITLE: ${{ github.event.issue.title }}
