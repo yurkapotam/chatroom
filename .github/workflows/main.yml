@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ (!github.event.issue.pull_request) && (github.event.issue.labels[0].name == 'messaging room') }}
     steps:
-      - uses: checkout@v3
+      - uses: actions/checkout@v1
       - run: |
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
