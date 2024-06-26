@@ -16,7 +16,7 @@ jobs:
           echo ${MSGSENDER}: ${MSGBODY}>>${ROOMTITLE}.txt
           git add .
           git commit -m 'user message'
-          git push
+          git push origin HEAD:main
         env:
           MSGBODY: ${{ github.event.comment.body }}
           ROOMTITLE: ${{ github.event.issue.title }}
