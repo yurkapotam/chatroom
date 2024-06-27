@@ -1,3 +1,4 @@
 yurkapotam: first message
 : should i commit
 : NO FKN WAY IT WORKS
+yurkapotam: ok did i fix the usernames
