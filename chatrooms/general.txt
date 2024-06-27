@@ -1,2 +1,3 @@
 yurkapotam: first message
 : should i commit
+: NO FKN WAY IT WORKS
